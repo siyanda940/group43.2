@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflex - Delivery Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>REFLEX</h1>
+        <p>Delivery Management System</p>
+    </header>
+
+    <main>
+
+        <section class="card">
+            <h2>New Delivery Request</h2>
+            <p class="subtitle">
+                Create a delivery request for the dispatcher.
+            </p>
+
+            <form id="deliveryForm">
+
+                <label for="customerName">Customer Name</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="e.g. Jane Mwangi"
+                    required
+                >
+
+                <label for="phone">Phone</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="e.g. 0712 345 678"
+                    required
+                >
+
+                <label for="address">Address</label>
+                <input
+                    type="text"
+                    id="address"
+                    placeholder="e.g. Westlands, Nairobi"
+                    required
+                >
+
+                <label for="item">Item Description</label>
+                <input
+                    type="text"
+                    id="item"
+                    placeholder="e.g. HP Laptop"
+                    required
+                >
+
+                <label for="notes">Notes (Optional)</label>
+                <textarea
+                    id="notes"
+                    placeholder="e.g. Call customer on arrival"
+                ></textarea>
+
+                <button type="submit">
+                    CREATE REQUEST
+                </button>
+
+            </form>
+        </section>
+
+        <section id="requestCreated" class="card hidden">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Request Created</h2>
+
+            <p>
+                Your delivery request has been successfully created.
+            </p>
+
+            <div class="request-info">
+                <strong>Request ID</strong>
+                <span id="requestId"></span>
+            </div>
+
+            <div class="request-info">
+                <strong>Status</strong>
+                <span class="status pending">PENDING</span>
+            </div>
+
+        </section>
+        <section id="dispatcherSection" class="card hidden">
+
+    <h2>Dispatcher Dashboard</h2>
+
+    <p class="subtitle">
+        View open delivery requests and assign riders.
+    </p>
+
+    <div class="delivery-card">
+
+        <div>
+            <strong id="dispatcherRequestId">RQ-000000</strong>
+            <span class="status pending">PENDING</span>
+        </div>
+
+        <p><strong>Customer:</strong> <span id="dispatcherCustomer"></span></p>
+        <p><strong>Phone:</strong> <span id="dispatcherPhone"></span></p>
+        <p><strong>Address:</strong> <span id="dispatcherAddress"></span></p>
+        <p><strong>Item:</strong> <span id="dispatcherItem"></span></p>
+
+        <label for="riderSelect">Assign Rider</label>
+
+        <select id="riderSelect">
+            <option value="">Select a rider</option>
+            <option value="John">Rider A - John</option>
+            <option value="Brian">Rider B - Brian</option>
+            <option value="Mary">Rider C - Mary</option>
+        </select>
+
+        <button id="assignButton">
+            ASSIGN RIDER
+        </button>
+
+    </div>
+
+</section>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
